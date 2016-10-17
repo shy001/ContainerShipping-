@@ -1,0 +1,7 @@
+C:\Users\shahista.AGRISTA\Documents\Visual Studio 2013\Projects\ContainerSolution\Container.Tests\obj\Debug\Container.Tests.csprojResolveAssemblyReference.cache
+C:\Users\shahista.AGRISTA\Documents\Visual Studio 2013\Projects\ContainerSolution\Container.Tests\bin\Debug\Container.Tests.dll
+C:\Users\shahista.AGRISTA\Documents\Visual Studio 2013\Projects\ContainerSolution\Container.Tests\bin\Debug\Container.Tests.pdb
+C:\Users\shahista.AGRISTA\Documents\Visual Studio 2013\Projects\ContainerSolution\Container.Tests\bin\Debug\ContainerSystem.dll
+C:\Users\shahista.AGRISTA\Documents\Visual Studio 2013\Projects\ContainerSolution\Container.Tests\bin\Debug\ContainerSystem.pdb
+C:\Users\shahista.AGRISTA\Documents\Visual Studio 2013\Projects\ContainerSolution\Container.Tests\obj\Debug\Container.Tests.dll
+C:\Users\shahista.AGRISTA\Documents\Visual Studio 2013\Projects\ContainerSolution\Container.Tests\obj\Debug\Container.Tests.pdb
