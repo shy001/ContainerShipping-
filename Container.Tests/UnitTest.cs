@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ContainerSystem;
 
 namespace Container.Tests
 {
@@ -80,6 +81,7 @@ namespace Container.Tests
             Assert.AreEqual(expectedResult, numberOfStacksResult);
         }
 
+
         //[TestMethod]
         //public void Given_ValidInput_Return_SuccessMessage()
         //{
@@ -92,11 +94,11 @@ namespace Container.Tests
         //}
 
         [TestMethod]
-        public void Given_CharGreaterThanPreviousChar_Return_False()
+        public void Given_CharGreaterThanPreviousChar_Return_True()
         {
             char current = 'B';
             char previous = 'A';
-            bool expectedResult = false;
+            bool expectedResult = true;
             var arrageContainers = new ContainerSystem.ArrangeContainers();
 
             bool orderOfCharResult = arrageContainers.CheckPreviousCharLessThanCurrent(previous, current);
@@ -104,15 +106,58 @@ namespace Container.Tests
         }
 
         [TestMethod]
-        public void Given_CharLessThanPreviousChar_Return_True()
+        public void Given_CharLessThanPreviousChar_Return_False()
         {
             char current = 'B';
             char previous = 'C';
-            bool expectedResult = true;
+            bool expectedResult = false;
             var arrageContainers = new ContainerSystem.ArrangeContainers();
 
             bool orderOfCharResult = arrageContainers.CheckPreviousCharLessThanCurrent(previous, current);
             Assert.AreEqual(expectedResult, orderOfCharResult);
+        }
+                
+        [TestMethod]
+        public void LoadStacks_GivenCBACBACBACBA_ShouldReturn3Stacks()
+        {
+            // Arrange
+            var arrangeContainers = new ArrangeContainers();
+            var containers = "CBACBACBACBA";
+
+            // Act
+            var stacks = arrangeContainers.LoadStacks(0, containers);
+
+            // Assert
+            Assert.AreEqual(3, stacks);
+        }
+
+        [TestMethod]
+        public void LoadStacks_GivenACMICPC_ShouldReturn4Stacks()
+        {
+            // Arrange
+            var arrangeContainers = new ArrangeContainers();
+            var containers = "ACMICPC";
+
+            // Act
+            var stacks = arrangeContainers.LoadStacks(0, containers);
+
+            // Assert
+            Assert.AreEqual(4, stacks);
+        }
+
+
+        [TestMethod]  
+        public void LoadStacks_GivenACMIMCPCD_ShouldReturn5Stacks()
+        {
+            // Arrange
+            var arrangeContainers = new ArrangeContainers();
+            var containers = "ACMIMCPCD";
+
+            // Act
+            var stacks = arrangeContainers.LoadStacks(0, containers);
+
+            // Assert
+            Assert.AreEqual(5, stacks);
         }
     }
 }
