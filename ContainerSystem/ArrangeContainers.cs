@@ -9,6 +9,7 @@ namespace ContainerSystem
     public class ArrangeContainers
     {
         public List<string> containerStacks = new List<string>();
+        //private List<Stack<char>> containerCharStacks = new List<Stack<char>>();
         public ArrangeContainers()
         { }
         public string ReadContainerFile(string fileInput)
@@ -57,7 +58,18 @@ namespace ContainerSystem
                             //4.check if container doesnt already have a stack 
                             if (!containerStacks.Contains(currentContainer.ToString()))
                             {
-                                containerStacks.Add(testCase[index].ToString());
+                                var containerToStackOn = containerStacks.FirstOrDefault(charToCheck => charToCheck.CompareTo(currentContainer.ToString()) > 0);
+                                //5.check if previousContainer wont come through again in the future
+                                if (containerToStackOn != null && !testCase.Substring(index).Contains(containerToStackOn))
+                                {
+                                    int indexOfContainer = containerStacks.LastIndexOf(containerToStackOn);
+                                    containerStacks[indexOfContainer] = testCase[index].ToString();
+                                }
+                                else
+                                {
+                                    containerStacks.Add(testCase[index].ToString());
+                                }
+
                             }
                         }
                         else
@@ -65,8 +77,18 @@ namespace ContainerSystem
                             //4.check if container doesnt already have a stack 
                             if (!containerStacks.Contains(currentContainer.ToString()))
                             {
-                                int previousIndex = containerStacks.IndexOf(previousContainer.ToString());
-                                containerStacks[previousIndex] = testCase[index].ToString();
+                                //5.check if previousContainer will come through again in the future
+                                if (!testCase.Substring(index).Contains(previousContainer))
+                                {
+                                    int previousIndex = containerStacks.IndexOf(previousContainer.ToString());
+                                    containerStacks[previousIndex] = testCase[index].ToString();
+                                }
+                                else
+                                {
+                                    var indexToStackOn = containerStacks.FirstOrDefault(charToCheck => charToCheck.CompareTo(currentContainer.ToString()) > 0);
+
+                                    containerStacks.Add(testCase[index].ToString());
+                                }
                             }
                         }
                     }
